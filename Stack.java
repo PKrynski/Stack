@@ -1,14 +1,23 @@
-package stos;
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package stack;
 
+/**
+ *
+ * @author Paweł
+ */
 public class Stack {
 
     private Pair head;
 
     public void put(double wartosc) {
 
-        Pair item = head;
-        head = new Pair(wartosc);
-        head.next = item;
+        Pair newitem = new Pair(wartosc);
+        newitem.next = head;
+        head = newitem;
     }
 
     public double get() {
@@ -25,7 +34,7 @@ public class Stack {
 
         for (int i = 1; i < 10; i++) {
             stos.put(i);
-            System.out.println("Dodano: " + (double)i);
+            System.out.println("Dodano: " + (double) i);
         }
 
         double wartosc;
