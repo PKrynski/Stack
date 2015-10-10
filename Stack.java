@@ -22,10 +22,27 @@ public class Stack {
 
     public double get() {
 
+        if (this.isEmpty()) {
+
+        }
+
         double itemvalue = head.value;
         head = head.next;
 
         return itemvalue;
+    }
+
+    public boolean isEmpty() {
+
+        return head == null;
+    }
+
+    public class EmptyStackException extends Exception {
+
+        @Override
+        public String toString() {
+            return "Napotkano koniec stosu.";
+        }
     }
 
     public static void main(String[] args) {
