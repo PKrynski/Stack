@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package stack;
 
 /**
@@ -20,10 +15,10 @@ public class Stack {
         head = newitem;
     }
 
-    public double get() {
+    public double get() throws EmptyStackException {
 
         if (this.isEmpty()) {
-
+            throw new EmptyStackException();
         }
 
         double itemvalue = head.value;
@@ -49,23 +44,26 @@ public class Stack {
 
         Stack stos = new Stack();
 
-        for (int i = 1; i < 10; i++) {
+        for (int i = 0; i < 20; i++) {
             stos.put(i);
             System.out.println("Dodano: " + (double) i);
         }
 
-        double wartosc;
-        for (int i = 1; i < 10; i++) {
-            wartosc = stos.get();
-            System.out.println("Zdjeto: " + wartosc);
+        try {
+            while (true) {
+                double wartosc = stos.get();
+                System.out.println("Zdjeto: " + wartosc);
+            }
+        } catch (EmptyStackException e) {
+            System.out.println(e.toString());
         }
 
     }
 
     private class Pair {
 
-        double value;
-        Pair next;
+        private double value;
+        private Pair next;
 
         public Pair(double value) {
             this.value = value;
